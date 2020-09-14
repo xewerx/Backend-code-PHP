@@ -70,7 +70,7 @@ if(count($errors) == 0) {
     $_SESSION['success'] = "You are now logged in";
 
     require_once('mailer.php');
-    // sendMail("e.lawecki@ccpartners.pl"); // adres na ktory wyslany zostanie email
+    sendMail("e.lawecki@ccpartners.pl"); // adres na ktory wyslany zostanie email
 
 
     header('location: index.php');

@@ -48,7 +48,7 @@ if(isset($_SESSION['success'])) : ?>
 
 <?php endif ?>
 
-//if the user log in print information about him
+<!-- comment -->
 
 <?php if(isset($_SESSION['username'])) : ?>
 

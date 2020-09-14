@@ -10,6 +10,7 @@ function sendMail($receiver) {
     $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
     $mail->Host = "smtp.gmail.com";
     $mail->Port = 465; // or 587
+    $mail->CharSet = 'UTF-8';
     $mail->IsHTML(true);
     $mail->Username = "ewaryst1002@gmail.com";
     $mail->Password = "123EWer123@";
