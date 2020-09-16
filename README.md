@@ -1,3 +1,3 @@
 # RegisterSystemPHP
 
-Must add phpmailer folder :)
+Must add phpmailer and create "uploads" folder :)
