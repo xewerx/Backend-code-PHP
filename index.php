@@ -55,8 +55,21 @@ if(isset($_SESSION['success'])) : ?>
     <h3>Welcome <?php echo $_SESSION['username'] ?></h3>
 
     <button><a href="index.php?logout='1'">Logout</a></button>
-
+    
 <?php endif ?>
+    <br><br>
+    <form action="fileService.php" method="post" enctype="multipart/form-data">
+        Podaj tytuł:
+        <input type="text" name="title">
+        <br><br>
+        Podaj tekst:
+        <textarea name="text"></textarea>
+        <br><br>    
+        Wybierz zdjęcie do dodania:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <br><br>    
+        <input type="submit" value="Dodaj ogłoszenie!" name="submit">
+    </form>
 
 
     </body>

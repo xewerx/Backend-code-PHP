@@ -2,7 +2,8 @@
     require_once('phpmailer/class.phpmailer.php');    //dodanie klasy phpmailer
     require_once('phpmailer/class.smtp.php');    //dodanie klasy smtp
 
-function sendMail($receiver) {
+function sendMail($receiver, $title, $message) {
+   
     $mail = new PHPMailer(); // create a new object
     $mail->IsSMTP(); // enable SMTP
     $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
@@ -15,8 +16,8 @@ function sendMail($receiver) {
     $mail->Username = "ewaryst1002@gmail.com";
     $mail->Password = "123EWer123@";
     $mail->SetFrom("ewaryst1002@gmail.com");
-    $mail->Subject = "Utworzono konto";
-    $mail->Body = "Konto w serwisie utworzone pomyślnie";
+    $mail->Subject = $title;
+    $mail->Body = $message;
     $mail->AddAddress($receiver);
     
      if(!$mail->Send()) {
@@ -25,3 +26,4 @@ function sendMail($receiver) {
         echo "Message has been sent";
      }
    }
+

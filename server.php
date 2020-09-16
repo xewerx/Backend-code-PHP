@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once('database.php');
 
 function passwordStrength($pass) { 
 
@@ -24,10 +24,6 @@ $username = "";
 $email = "";
 $errors = array();
 
-//connect to db
-
-$db = mysqli_connect('localhost', 'root', '', 'practice') or die("could not connect do database");
-
 //Register users
 
 if(isset($_POST['reg_user'])) {
@@ -44,7 +40,7 @@ if(empty(filter_var($email, FILTER_VALIDATE_EMAIL))) {array_push($errors, "Email
 if(empty($email)) {array_push($errors, "Email is required");}
 if(empty($password_1)) {array_push($errors, "Password is required");}
 if($password_1 != $password_2) {array_push($errors, "Passwords do not match");}
-if(!passwordStrength($password_1)) {array_push($errors, "Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.");}
+//if(!passwordStrength($password_1)) {array_push($errors, "Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.");}
 
 // check db for existing user with same username
 
@@ -70,7 +66,7 @@ if(count($errors) == 0) {
     $_SESSION['success'] = "You are now logged in";
 
     require_once('mailer.php');
-    sendMail("e.lawecki@ccpartners.pl"); // adres na ktory wyslany zostanie email
+    //sendMail("e.lawecki@ccpartners.pl", "Potwierdzienie utworzenia konta", "Witaj!<br>Konto w serwisie xewerx.com zostało utworzone pomyślnie"); // adres na ktory wyslany zostanie email
 
 
     header('location: index.php');
@@ -99,7 +95,6 @@ if(isset($_POST['login_user'])) {
         $results = mysqli_query($db, $query);
 
         if(mysqli_num_rows($results)) {
-            echo "cici";
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "Logged in succesfully";
             header("location: index.php");

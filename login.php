@@ -36,10 +36,13 @@
             <p>Not a user?<a href="registration.php">Register here</a></p>
 
         </form>
-
-
-
-
+        <br>
+        <button><a href="resetPassForm.html">Reset password</a></button>
+        <br>
+        <?php if(isset($_SESSION['resetPass'])){
+            echo $_SESSION['resetPass'];
+            session_destroy();
+        } ?>
 
     </div>
 
